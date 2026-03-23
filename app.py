@@ -586,7 +586,7 @@ tours.extract_collection_id_from_url = extract_collection_id_from_url
 
 # Import the collections module using a direct import to avoid collision with the built-in collections module
 import importlib.util
-collections_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'collections.py')
+collections_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'collections_module.py')
 collections_spec = importlib.util.spec_from_file_location("collections_module", collections_path)
 collections_module = importlib.util.module_from_spec(collections_spec)
 collections_spec.loader.exec_module(collections_module)
@@ -702,4 +702,4 @@ collections_module.register_collection_routes(app, {
 
 # Run Flask app if this is the main module
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5003)
+    app.run(debug=True, host='0.0.0.0', port=5004)

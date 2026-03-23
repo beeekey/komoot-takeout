@@ -645,12 +645,7 @@
                         outputDirDisplay.textContent = data.folder || "No folder selected";
                     }
                     
-                    // Update hidden input fields if they exist (for backward compatibility)
-                    const outputDirInput = document.getElementById('output-dir');
-                    const collectionsOutputDirInput = document.getElementById('collections-output-dir');
-                    
-                    if (outputDirInput) outputDirInput.value = data.folder;
-                    if (collectionsOutputDirInput) collectionsOutputDirInput.value = data.folder;
+
                     
                     // Display the folder selection elements if pywebview is available
                     document.querySelectorAll('.folder-selection-btn').forEach(btn => {
@@ -677,7 +672,6 @@
         const tourIdField = document.getElementById('tour-id');
         const filterSection = document.getElementById('filter-section');
         const filterTypeSelect = document.getElementById('filter-type');
-        const outputDirInput = document.getElementById('output-dir');
         const optionsSection = document.getElementById('options-section');
         const optionsToggleBtn = document.getElementById('options-toggle-btn');
         const noPoiCheckbox = document.getElementById('no-poi');
@@ -722,7 +716,6 @@
         const collectionsTableBody = document.getElementById('collections-table-body');
         const clearCollectionsBtn = document.getElementById('clear-collections-btn');
         const downloadCollectionsSection = document.getElementById('download-collections-section');
-        const collectionsOutputDirInput = document.getElementById('collections-output-dir');
         const collectionsIncludeMetadataCheckbox = document.getElementById('collections-include-metadata');
         const collectionsDownloadImagesCheckbox = document.getElementById('collections-download-images');
         const collectionsNoPoiCheckbox = document.getElementById('collections-no-poi');
@@ -963,7 +956,7 @@
             const password = passwordInput.value.trim();
             const tourSelection = allToursRadio.checked ? 'all' : tourIdField.value.trim();
             const filterType = filterTypeSelect.value;
-            const outputDir = outputDirInput.value.trim();
+            const outputDir = document.getElementById('output-dir-display').textContent.trim();
             const noPoi = noPoiCheckbox.checked;
             const skipExisting = skipExistingCheckbox.checked;
             const idFilename = idFilenameCheckbox.checked;
@@ -1291,7 +1284,7 @@
                 return;
             }
             
-            const outputDir = collectionsOutputDirInput.value.trim();
+            const outputDir = document.getElementById('output-dir-display').textContent.trim();
             const includeMetadata = collectionsIncludeMetadataCheckbox.checked;
             const downloadImages = collectionsDownloadImagesCheckbox.checked;
             
