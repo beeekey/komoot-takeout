@@ -18,8 +18,49 @@ Consider this tool a stop-gap solution created in response to Komoot locking up 
 
 - **Windows (.exe):** ⬇️ [komoot-takeout.exe ](https://github.com/nevvkid/komoot-takeout/raw/1fb58e052c5b06e9c6c1fac2a3e370ed183ce96e/dist/komoot-takeout.exe)⬇️
 - **macOS (.app):** ⬇️ [komoot-takeout.app(macOS).zip](https://github.com/nevvkid/komoot-takeout/raw/b33521fb8c5da4472e847c451b918125ac5d8a2b/dist/komoot-takeout.app(macOS).zip)⬇️
+- **Linux:** Run from source (see instructions below)
 
 Only tested with Windows 11 Pro & macOS 15.x.x (Apple silicon)
+---
+
+## 🐧 Running on Linux
+
+To run komoot-takeout on Linux:
+
+### Prerequisites
+- Python 3.7+
+- pip (Python package manager)
+- git (to clone the repository)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/nevvkid/komoot-takeout.git
+cd komoot-takeout
+
+# Create and activate a virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the application
+python app.py
+```
+
+### Running the Application
+
+1. Open your web browser and navigate to `http://localhost:5004`
+2. The application should now be running and you can use it to export your Komoot tours
+3. When you're done, press Ctrl+C in the terminal to stop the server
+
+### Notes
+- The Linux version runs as a web application rather than a desktop app
+- You can access it from any device on your local network by using your Linux machine's IP address
+- For a desktop-like experience, you can use the PyWebView version by running `python pywebview_app.py`
+
 ---
 
 ![windows 11 - screenshot](windows11-screenshot.png)
